@@ -12,11 +12,17 @@ class CodeFile1 : Form
     //デフォルトコンストラクタ
     public CodeFile1()
     {
-        var scores = new int[] { 54, 77, 12, 53, 48 };
+        var scores = new int[5];
 
-        for (int i = 0; i < scores.Length; i++)
+        for(int i = 0; i< scores.Length; i++)
         {
+            scores[i] = 20 * (i + 1);
             Console.WriteLine(scores[i]);
         }
+
+        //for (int i = 0; i < scores.Length; i++)
+        //{
+        //    Console.WriteLine(scores[i]);
+        //}
     }
 }
