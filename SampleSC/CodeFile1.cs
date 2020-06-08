@@ -1,17 +1,16 @@
 ﻿
 using System.Windows.Forms;
 
-class CodeFile1
+class CodeFile1 : Form
 {
-    static Form form;
-
-    static void Main()
+    public static void Main()
     {
-        form = new Form();
-        form.Width = 800;
-        form.Height = 600;
+        Application.Run(new CodeFile1());
+    }
 
-        Application.Run(form);
+    //デフォルトコンストラクタ
+    public CodeFile1()
+    {
 
     }
 }
