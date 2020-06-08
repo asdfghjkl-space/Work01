@@ -14,11 +14,32 @@ class CodeFile1 : Form
     {
         var scores = new int[5];
 
-        for(int i = 0; i< scores.Length; i++)
+        //値の入力
+        for (var i = 0; i < scores.Length; i++)
         {
-            scores[i] = 20 * (i + 1);
-            Console.WriteLine(scores[i]);
+            //整数値の取り込み
+            var num = Console.ReadLine();
+
+            var number = int.Parse(num);
+
+            scores[i] = number;
         }
+        //合計値
+        var total = 0;
+
+        //値の出力
+        for (int i = 0; i < scores.Length; i++)
+        {
+            total += scores[i];
+        }
+
+        Console.WriteLine("入力された値の合計は、"+total+"です。");
+
+        //for(int i = 0; i< scores.Length; i++)
+        //{
+        //    scores[i] = 20 * (i + 1);
+        //    Console.WriteLine(scores[i]);
+        //}
 
         //for (int i = 0; i < scores.Length; i++)
         //{
