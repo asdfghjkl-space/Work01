@@ -12,6 +12,7 @@ class CodeFile1 : Form
     //デフォルトコンストラクタ
     public CodeFile1()
     {
+        #region//入力された値の合計を求める
         //var scores = new int[5];
 
         ////値の入力
@@ -34,31 +35,32 @@ class CodeFile1 : Form
         //}
 
         //Console.WriteLine("入力された値の合計は、"+total+"です。");
+        #endregion
 
+        #region//アスタリスク出力
+        //var scores = new int[5];
 
+        ////入力
+        //for (int i = 0; i < scores.Length; i++)
+        //{
+        //    Console.Write("scores[" + i + "]=");
+        //    scores[i] = int.Parse(Console.ReadLine());
+        //}
 
-        //アスタリスク出力
-        var scores = new int[5];
+        //Console.WriteLine();//改行
 
-        //入力
-        for (int i = 0; i < scores.Length; i++)
-        {
-            Console.Write("scores[" + i + "]=");
-            scores[i] = int.Parse(Console.ReadLine());
-        }
+        ////出力
+        //for (int j = 0; j < scores.Length; j++)
+        //{
+        //    for (int i = 0; i < scores[j]; i++)
+        //    {
+        //        Console.Write("*");
+        //    }
+        //    Console.WriteLine();//改行
+        //}
+        #endregion
 
-        Console.WriteLine();//改行
-
-        //出力
-        for (int j = 0; j < scores.Length; j++)
-        {
-            for (int i = 0; i < scores[j]; i++)
-            {
-                Console.Write("*");
-            }
-            Console.WriteLine();//改行
-        }
-
+        #region//2の倍数
         //for(int i = 0; i< scores.Length; i++)
         //{
         //    scores[i] = 20 * (i + 1);
@@ -69,5 +71,32 @@ class CodeFile1 : Form
         //{
         //    Console.WriteLine(scores[i]);
         //}
+        #endregion
+
+
+        #region//*を三角に表示
+        int num;
+
+        Console.Write("段数 : ");
+        num = int.Parse(Console.ReadLine());
+
+        Console.WriteLine();//改行
+
+        for (int j = 0; j < num; j++)
+        {
+            //空白を入れる
+            for (int i = 0; i < (num - j) - 1; i++)
+            {
+                Console.Write(" ");
+            }
+
+            //アスタリスク出力
+            for (int i = 0; i < (j + 1); i++)
+            {
+                Console.Write(" *");
+            }
+            Console.WriteLine();//改行
+        }
+        #endregion
     }
 }
