@@ -120,7 +120,7 @@ class CodeFile1 : Form
         //Console.WriteLine("文字数 : " + moji.Count());
         #endregion
 
-        #region//文字の置換
+        #region//演習6 文字の置換
         //string moji = "";
         //string moji2 = "";
         //string moji3 = "";
@@ -134,5 +134,46 @@ class CodeFile1 : Form
         //Console.WriteLine("置換後 : " + moji3.ToLower());
         //Console.WriteLine("文字列 : " + moji.Replace(moji2, moji3));
         #endregion
+
+        #region//演習7 入力した文字を分ける
+        //var moji = "";
+
+        //moji = Console.ReadLine();
+        //var items = moji.Split('、');
+        ////Console.WriteLine("文字列 : " + moji.Length);
+
+
+        //for (int i = 0; i < items.Length; i++)
+        //{
+        //    Console.WriteLine("city : " + items[i]);
+        //}
+        #endregion
+
+        Random ran = new Random();
+        //チェック用の配列
+        var checkNum = new int[20] { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+        int num;
+
+        //①
+        //Console.WriteLine(ran.Next(101));
+
+        //②
+        //for (int i = 0; i < 20; i++)
+        //{
+        //    Console.Write(ran.Next(20) + 1 + " ");
+        //}
+
+        //③
+        for (int i = 0; i < 20; i++)
+        {
+            do
+            {
+                num = ran.Next(20) + 1; //0～20の乱数                
+            } while (checkNum[num - 1] != 0);
+
+            checkNum[num - 1] = 1;
+            Console.Write(num + " ");
+        }
     }
 }
