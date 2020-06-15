@@ -33,8 +33,8 @@ class Stage : Form
         //pictureBoxBall.SizeMode = PictureBoxSizeMode.StretchImage;
         pictureBoxBall.Parent = this;
 
-        //timer.Interval = 10;        //ms
-        //timer.Tick += Timer_Tick;   //時間経過で呼ぶメソッドを登録
+        timer.Interval = 10;        //ms
+        timer.Tick += Timer_Tick;   //時間経過で呼ぶメソッドを登録
         //timer.Start();              //タイマースタート
 
         this.MouseClick += Stage_MouseClick;
@@ -43,7 +43,24 @@ class Stage : Form
     //マウスクリック時のイベントハンドラ
     private void Stage_MouseClick(object sender, MouseEventArgs e)
     {
-        ball = new Ball(e.X-50,e.Y-50);   //ボールオブジェクトの生成
+        //クリックした座標を使いボールオブジェクトを生成
+        string path = "";
+        if(e.Button == MouseButtons.Left)
+        {
+            //ボールオブジェクトの生成
+            path = @"images\soccer_ball.png";
+        }
+        else if(e.Button == MouseButtons.Right)
+        {
+            //ボールオブジェクトの生成
+            path = @"images\tennis_ball.png";
+        }
+        else
+        {
+            return;
+        }
+
+        ball = new Ball(e.X - 50, e.Y - 50, path);   //ボールオブジェクトの生成
 
         //クリックした座標を使いボールオブジェクトを生成
         pictureBoxBall.Width = 100;
@@ -51,11 +68,12 @@ class Stage : Form
         pictureBoxBall.Top = (int)ball.YPos;
         pictureBoxBall.Left = (int)ball.XPos;
         pictureBoxBall.Image = ball.Img;
+        pictureBoxBall.Image = ball.Img2;
         pictureBoxBall.SizeMode = PictureBoxSizeMode.StretchImage;
         //pictureBoxBall.Parent = this;
 
-        timer.Interval = 5000;      //ms
-        timer.Tick += Timer_Tick;   //時間経過で呼ぶメソッドを登録
+        //timer.Interval = 10;        //ms
+        //timer.Tick += Timer_Tick;   //時間経過で呼ぶメソッドを登録
         timer.Start();              //タイマースタート
     }
 
@@ -64,7 +82,7 @@ class Stage : Form
     {
         ball.Move();
 
-        pictureBoxBall.Top = (int)ball.XPos;
-        pictureBoxBall.Left = (int)ball.YPos;
+        pictureBoxBall.Top = (int)ball.YPos;
+        pictureBoxBall.Left = (int)ball.XPos;
     }
 }
