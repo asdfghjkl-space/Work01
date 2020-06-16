@@ -39,9 +39,43 @@ class Ball
         moveY = rnd.Next(0, 20) - 10;
     }
 
+    const int Ball_Size = 100;//ボールのサイズ
     public void Move()
     {
         XPos += moveX;
         YPos += moveY;
+
+        //壁
+        if((YPos > 800 - 100) || YPos < 0)
+        {
+            moveY = -moveY;
+        }
+
+        if ((XPos > 1200 - 70) || XPos < 0)
+        {
+            moveX = -moveX;
+        }
+
+        #region//トモヤが考えた壁
+        //if (XPos > 1200 - Ball_Size)
+        //{
+        //    moveX *= -1;
+        //}
+
+        //if (XPos < 0)
+        //{
+        //    moveX *= -1;
+        //}
+
+        //if (YPos > 800 - Ball_Size)
+        //{
+        //    moveY *= -1;
+        //}
+
+        //if (YPos < 0)
+        //{
+        //    moveY *= -1;
+        //}
+        #endregion
     }
 }
