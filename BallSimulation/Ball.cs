@@ -2,9 +2,13 @@
 //ボールクラス
 using System;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 
 class Ball
 {
+    //静的プロパティ
+    public static int Count;   //オブジェクトの個数をカウント
+
     public double XPos { get; set; }   //X座標
     public double YPos { get; set; }   //X座標
     public Image  Img  { get; set; }   //画像データ
@@ -14,6 +18,7 @@ class Ball
     private double moveX;   //加速度(X)
     private double moveY;   //加速度(Y)
 
+    //乱数
     Random rnd = new System.Random();
 
     //コンストラクタ
@@ -27,7 +32,6 @@ class Ball
         moveX = 5;
         moveY = 5;
     }
-
     //引数付きコンストラクタ(座標指定)
     public Ball(double xp,double yp,string path)
     {
@@ -37,6 +41,10 @@ class Ball
         Img2 = Image.FromFile(path);
         moveX = rnd.Next(0, 20) - 10;
         moveY = rnd.Next(0, 20) - 10;
+
+        Count++;
+
+        Console.WriteLine("●X座標 {0} , Y座標{1}", (int)moveX, (int)moveY);
     }
 
     const int Ball_Size = 100;//ボールのサイズ
@@ -56,7 +64,9 @@ class Ball
             moveX = -moveX;
         }
 
-        #region//トモヤが考えた壁
+        Console.WriteLine("X座標: {0} , Y座標: {1}", (int)XPos, (int)YPos);
+
+        #region//壁
         //if (XPos > 1200 - Ball_Size)
         //{
         //    moveX *= -1;
@@ -78,4 +88,5 @@ class Ball
         //}
         #endregion
     }
+
 }
