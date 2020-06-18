@@ -15,31 +15,43 @@ namespace DistanceConverter
             if(args.Length >= 1 && args[0]== "-tom")
             {
                 //フィートからメートルへの対応表を出力
-                for (int feet = 1; feet <= 10; feet++)
-                {
-                    Console.WriteLine("{0} ft = {1:0.0000} m", feet, FeetToMeter(feet));
-                }
+                PrintFeetToMeterList(5, 50);
+
+                //for (int feet = 1; feet <= 10; feet++)
+                //{
+                //    Console.WriteLine("{0} ft = {1:0.0000} m", feet, FeetToMeter(feet));
+                //}
             }
             else
             {
                 //メートルからフィートへの対応表を出力
-                for (int meter = 1; meter <= 10; meter++)
-                {
-                    Console.WriteLine("{0} m = {1:0.00000} ft", meter, MeterToFeet(meter));
-                }
+                PrintMeterToFeetList(10, 100);
+
+                //for (int meter = 1; meter <= 10; meter++)
+                //{
+                //    Console.WriteLine("{0} m = {1:0.00000} ft", meter, MeterToFeet(meter));
+                //}
             }
         }
 
         //フィートからメートルを求める
-        static double FeetToMeter(int feet)
+        //引数:start 最初の値
+        //    :stop  最後の値
+        static void PrintFeetToMeterList(int start, int stop)
         {
-            return (feet * 0.3048);
+            for (int feet = start; feet <= stop; feet++)
+            {
+                Console.WriteLine("{0} ft = {1:0.0000} m", feet,feet * 0.3048);
+            }
         }
 
         //メートルからフィートを求める
-        static double MeterToFeet(int meter)
+        static void PrintMeterToFeetList(int start, int stop)
         {
-            return (meter * 3.28084);
+            for (int meter = start; meter <= stop; meter++)
+            {
+                Console.WriteLine("{0} m = {1:0.0000} ft", meter, meter * 3.28084);
+            }
         }
     }
 }
