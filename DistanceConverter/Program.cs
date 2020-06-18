@@ -8,6 +8,8 @@ namespace DistanceConverter
 {
     class Program
     {
+        static FeetConverter feetConverter = new FeetConverter();
+
         //-tom　フィートからメートルへの対応表
         //-tof　メートルからフィートへの対応表
         static void Main(string[] args)
@@ -41,16 +43,17 @@ namespace DistanceConverter
         {
             for (int feet = start; feet <= stop; feet++)
             {
-                Console.WriteLine("{0} ft = {1:0.0000} m", feet,feet * 0.3048);
+                Console.WriteLine("{0} ft = {1:0.0000} m", feet, feetConverter.FromMeter(feet));
             }
         }
+
 
         //メートルからフィートを求める
         static void PrintMeterToFeetList(int start, int stop)
         {
             for (int meter = start; meter <= stop; meter++)
             {
-                Console.WriteLine("{0} m = {1:0.0000} ft", meter, meter * 3.28084);
+                Console.WriteLine("{0} m = {1:0.0000} ft", meter, feetConverter.ToMeter(meter));
             }
         }
     }
