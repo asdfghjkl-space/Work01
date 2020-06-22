@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DistanceConverter
 {
     //フィートとメートルの単位変換クラス
-    static class FeetConverter
+    public static class FeetConverter
     {
         //メートルからフィートを求める（静的メソッドとして定義）
         public static double FromMeter(double meter)
