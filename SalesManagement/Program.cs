@@ -12,7 +12,7 @@ namespace SalesManagement
     {
         static void Main(string[] args)
         {
-
+            SalesCounter sales = new SalesCounter(ReadSals("Sales.csv"));
         }
 
         //売上データを読み込み、Saleオブジェクトのリストを返す
