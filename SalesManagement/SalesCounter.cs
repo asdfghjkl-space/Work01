@@ -16,6 +16,5 @@ namespace SalesManagement
         {
             _sales = sales;
         }
-
     }
 }
