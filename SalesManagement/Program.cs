@@ -12,7 +12,16 @@ namespace SalesManagement
     {
         static void Main(string[] args)
         {
+            int total = 0;
+
             SalesCounter sales = new SalesCounter(ReadSals("Sales.csv"));
+
+            foreach (var item in sales._sales)
+            {
+                total += item.Amount;
+            }
+
+            Console.WriteLine("全体の売り上げ : {0}円",total);
         }
 
         //売上データを読み込み、Saleオブジェクトのリストを返す
