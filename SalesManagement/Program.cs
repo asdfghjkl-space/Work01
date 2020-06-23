@@ -12,27 +12,12 @@ namespace SalesManagement
     {
         static void Main(string[] args)
         {
-            Dictionary<string, int> stores = new Dictionary<string, int>();
+            SalesCounter sales = new SalesCounter("Sales.csv");
 
-            SalesCounter sales = new SalesCounter(ReadSals("Sales.csv"));
-
-            foreach (var item in sales._sales)
-            {
-                if (stores.ContainsKey(item.ShopName))
-                {
-                    //キー（店舗名）が存在する場合
-                    stores[item.ShopName] += item.Amount;
-                }
-                else
-                {
-                    //キー（店舗名）が存在しない
-                    stores[item.ShopName] = item.Amount;
-
-                }
-            }
+            Dictionary<string,int> amoutPerStore = sales.GetPerStoreSales();
 
             //出力
-            foreach (var item in stores)
+            foreach (var item in amoutPerStore)
             {
                 Console.WriteLine("{0}の売り上げ合計 : {1}", item.Key, item.Value);
 
@@ -100,31 +85,5 @@ namespace SalesManagement
             #endregion
         }
 
-        //売上データを読み込み、Saleオブジェクトのリストを返す
-        static List<Sale> ReadSals(string filePath)
-        {
-            //売上データを入れるリストオブジェクトを生成
-            var sales = new List<Sale>();
-
-            //ファイルから読み込み
-            string[] lines = File.ReadAllLines(filePath);
-
-            //読み込んだ行の数だけ繰り返す
-            foreach (string line in lines)
-            {
-                string[] items = line.Split(',');
-
-                Sale sale = new Sale
-                {
-                    ShopName = items[0],
-                    ProductCategory = items[1],
-                    Amount = int.Parse(items[2])
-                };
-
-                //saleオブジェクトをリストに追加
-                sales.Add(sale);
-            }
-            return sales;
-        }
     }
 }
