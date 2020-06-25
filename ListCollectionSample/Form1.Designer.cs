@@ -36,7 +36,11 @@
             this.tbMaker = new System.Windows.Forms.TextBox();
             this.dgvCarData = new System.Windows.Forms.DataGridView();
             this.btAdd = new System.Windows.Forms.Button();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.btOpenImage = new System.Windows.Forms.Button();
+            this.ofdOpenImage = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -99,24 +103,50 @@
             this.dgvCarData.Location = new System.Drawing.Point(16, 144);
             this.dgvCarData.Name = "dgvCarData";
             this.dgvCarData.RowTemplate.Height = 21;
-            this.dgvCarData.Size = new System.Drawing.Size(412, 195);
+            this.dgvCarData.Size = new System.Drawing.Size(594, 195);
             this.dgvCarData.TabIndex = 4;
             // 
             // btAdd
             // 
             this.btAdd.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btAdd.Location = new System.Drawing.Point(329, 83);
+            this.btAdd.Location = new System.Drawing.Point(523, 71);
             this.btAdd.Name = "btAdd";
             this.btAdd.Size = new System.Drawing.Size(87, 55);
             this.btAdd.TabIndex = 5;
             this.btAdd.Text = "登録";
             this.btAdd.UseVisualStyleBackColor = true;
+            this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
+            // 
+            // pbImage
+            // 
+            this.pbImage.Location = new System.Drawing.Point(353, 9);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(164, 117);
+            this.pbImage.TabIndex = 6;
+            this.pbImage.TabStop = false;
+            // 
+            // btOpenImage
+            // 
+            this.btOpenImage.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btOpenImage.Location = new System.Drawing.Point(523, 9);
+            this.btOpenImage.Name = "btOpenImage";
+            this.btOpenImage.Size = new System.Drawing.Size(87, 55);
+            this.btOpenImage.TabIndex = 7;
+            this.btOpenImage.Text = "開く...";
+            this.btOpenImage.UseVisualStyleBackColor = true;
+            this.btOpenImage.Click += new System.EventHandler(this.btOpenImage_Click);
+            // 
+            // ofdOpenImage
+            // 
+            this.ofdOpenImage.FileName = "OpenFileDialog1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 357);
+            this.ClientSize = new System.Drawing.Size(622, 350);
+            this.Controls.Add(this.btOpenImage);
+            this.Controls.Add(this.pbImage);
             this.Controls.Add(this.btAdd);
             this.Controls.Add(this.dgvCarData);
             this.Controls.Add(this.tbMaker);
@@ -128,6 +158,7 @@
             this.Name = "Form1";
             this.Text = "車登録アプリ";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,6 +174,9 @@
         private System.Windows.Forms.TextBox tbMaker;
         private System.Windows.Forms.DataGridView dgvCarData;
         private System.Windows.Forms.Button btAdd;
+        private System.Windows.Forms.PictureBox pbImage;
+        private System.Windows.Forms.Button btOpenImage;
+        private System.Windows.Forms.OpenFileDialog ofdOpenImage;
     }
 }
 
