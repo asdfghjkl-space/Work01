@@ -10,8 +10,6 @@ using System.Windows.Forms;
 
 namespace ListCollectionSample
 {
-
-
     public partial class Form1 : Form
     {
         //車データを入れるバインディングリスト
@@ -34,11 +32,20 @@ namespace ListCollectionSample
             };
 
             //BindingListへ登録
-            _Cars.Add(obj);
+            //特定の場所に表示(引数１つ目のところにぶち込む)
+            _Cars.Insert(0,obj);
 
-            tbName.ResetText();
-            tbMaker.ResetText();
-            tbCategory.ResetText();
+            //次の入力に備えて各項目をクリア
+            inputItemAllClear();
+        }
+
+        //入力項目を全クリア
+        private void inputItemAllClear()
+        {
+            tbName.Text = "";
+            tbMaker.Text = "";
+            tbCategory.Text = "";
+            pbImage.Image = null;
         }
 
         private void btOpenImage_Click(object sender, EventArgs e)
@@ -56,6 +63,38 @@ namespace ListCollectionSample
         private void btClearImage_Click(object sender, EventArgs e)
         {
             //ボタンを押したら、画像をクリア
+            pbImage.Image = null;
+        }
+
+        private void dgvCarData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvCarData_Click(object sender, EventArgs e)
+        {
+            //選択したコードを取り出す
+            //データグリッドビューで選択した行のインデックス
+            //BindingListのデータを取得する
+            Car selectedCar = _Cars[dgvCarData.CurrentRow.Index];
+
+            //選択したデータの表示
+            tbName.Text = selectedCar.Name;
+            tbMaker.Text = selectedCar.Maker;
+            tbCategory.Text = selectedCar.Category;
+        }
+
+        private void btModify_Click(object sender, EventArgs e)
+        {
+            Car selectedCar = _Cars[dgvCarData.CurrentRow.Index];
+
+            //選択したデータの変更
+            selectedCar.Name = tbName.Text;
+            selectedCar.Maker = tbMaker.Text;
+            selectedCar.Category = tbCategory.Text;
+            selectedCar.carPic = pbImage.Image;
+
+            dgvCarData.Refresh();
         }
     }
 }

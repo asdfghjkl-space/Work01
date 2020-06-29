@@ -40,6 +40,7 @@
             this.btOpenImage = new System.Windows.Forms.Button();
             this.ofdOpenImage = new System.Windows.Forms.OpenFileDialog();
             this.btClearImage = new System.Windows.Forms.Button();
+            this.btModify = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -102,17 +103,22 @@
             // 
             this.dgvCarData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarData.Location = new System.Drawing.Point(16, 144);
+            this.dgvCarData.MultiSelect = false;
             this.dgvCarData.Name = "dgvCarData";
+            this.dgvCarData.ReadOnly = true;
             this.dgvCarData.RowTemplate.Height = 21;
-            this.dgvCarData.Size = new System.Drawing.Size(594, 195);
+            this.dgvCarData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCarData.Size = new System.Drawing.Size(501, 195);
             this.dgvCarData.TabIndex = 4;
+            this.dgvCarData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarData_CellContentClick);
+            this.dgvCarData.Click += new System.EventHandler(this.dgvCarData_Click);
             // 
             // btAdd
             // 
             this.btAdd.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btAdd.Location = new System.Drawing.Point(523, 95);
+            this.btAdd.Location = new System.Drawing.Point(524, 245);
             this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(87, 31);
+            this.btAdd.Size = new System.Drawing.Size(95, 93);
             this.btAdd.TabIndex = 5;
             this.btAdd.Text = "登録";
             this.btAdd.UseVisualStyleBackColor = true;
@@ -120,18 +126,22 @@
             // 
             // pbImage
             // 
+            this.pbImage.BackColor = System.Drawing.Color.Transparent;
+            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbImage.Cursor = System.Windows.Forms.Cursors.Default;
             this.pbImage.Location = new System.Drawing.Point(353, 9);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(164, 117);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbImage.TabIndex = 6;
             this.pbImage.TabStop = false;
             // 
             // btOpenImage
             // 
             this.btOpenImage.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btOpenImage.Location = new System.Drawing.Point(523, 9);
+            this.btOpenImage.Location = new System.Drawing.Point(524, 9);
             this.btOpenImage.Name = "btOpenImage";
-            this.btOpenImage.Size = new System.Drawing.Size(87, 31);
+            this.btOpenImage.Size = new System.Drawing.Size(95, 61);
             this.btOpenImage.TabIndex = 7;
             this.btOpenImage.Text = "開く...";
             this.btOpenImage.UseVisualStyleBackColor = true;
@@ -144,19 +154,31 @@
             // btClearImage
             // 
             this.btClearImage.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btClearImage.Location = new System.Drawing.Point(524, 47);
+            this.btClearImage.Location = new System.Drawing.Point(524, 76);
             this.btClearImage.Name = "btClearImage";
-            this.btClearImage.Size = new System.Drawing.Size(86, 42);
+            this.btClearImage.Size = new System.Drawing.Size(95, 50);
             this.btClearImage.TabIndex = 8;
             this.btClearImage.Text = "クリア";
             this.btClearImage.UseVisualStyleBackColor = true;
             this.btClearImage.Click += new System.EventHandler(this.btClearImage_Click);
+            // 
+            // btModify
+            // 
+            this.btModify.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btModify.Location = new System.Drawing.Point(524, 144);
+            this.btModify.Name = "btModify";
+            this.btModify.Size = new System.Drawing.Size(95, 94);
+            this.btModify.TabIndex = 9;
+            this.btModify.Text = "変更";
+            this.btModify.UseVisualStyleBackColor = true;
+            this.btModify.Click += new System.EventHandler(this.btModify_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 350);
+            this.Controls.Add(this.btModify);
             this.Controls.Add(this.btClearImage);
             this.Controls.Add(this.btOpenImage);
             this.Controls.Add(this.pbImage);
@@ -191,6 +213,7 @@
         private System.Windows.Forms.Button btOpenImage;
         private System.Windows.Forms.OpenFileDialog ofdOpenImage;
         private System.Windows.Forms.Button btClearImage;
+        private System.Windows.Forms.Button btModify;
     }
 }
 
