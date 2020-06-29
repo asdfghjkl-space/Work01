@@ -39,6 +39,7 @@
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.btOpenImage = new System.Windows.Forms.Button();
             this.ofdOpenImage = new System.Windows.Forms.OpenFileDialog();
+            this.btClearImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
@@ -109,9 +110,9 @@
             // btAdd
             // 
             this.btAdd.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btAdd.Location = new System.Drawing.Point(523, 71);
+            this.btAdd.Location = new System.Drawing.Point(523, 95);
             this.btAdd.Name = "btAdd";
-            this.btAdd.Size = new System.Drawing.Size(87, 55);
+            this.btAdd.Size = new System.Drawing.Size(87, 31);
             this.btAdd.TabIndex = 5;
             this.btAdd.Text = "登録";
             this.btAdd.UseVisualStyleBackColor = true;
@@ -130,7 +131,7 @@
             this.btOpenImage.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btOpenImage.Location = new System.Drawing.Point(523, 9);
             this.btOpenImage.Name = "btOpenImage";
-            this.btOpenImage.Size = new System.Drawing.Size(87, 55);
+            this.btOpenImage.Size = new System.Drawing.Size(87, 31);
             this.btOpenImage.TabIndex = 7;
             this.btOpenImage.Text = "開く...";
             this.btOpenImage.UseVisualStyleBackColor = true;
@@ -140,11 +141,23 @@
             // 
             this.ofdOpenImage.FileName = "OpenFileDialog1";
             // 
+            // btClearImage
+            // 
+            this.btClearImage.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btClearImage.Location = new System.Drawing.Point(524, 47);
+            this.btClearImage.Name = "btClearImage";
+            this.btClearImage.Size = new System.Drawing.Size(86, 42);
+            this.btClearImage.TabIndex = 8;
+            this.btClearImage.Text = "クリア";
+            this.btClearImage.UseVisualStyleBackColor = true;
+            this.btClearImage.Click += new System.EventHandler(this.btClearImage_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 350);
+            this.Controls.Add(this.btClearImage);
             this.Controls.Add(this.btOpenImage);
             this.Controls.Add(this.pbImage);
             this.Controls.Add(this.btAdd);
@@ -177,6 +190,7 @@
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Button btOpenImage;
         private System.Windows.Forms.OpenFileDialog ofdOpenImage;
+        private System.Windows.Forms.Button btClearImage;
     }
 }
 

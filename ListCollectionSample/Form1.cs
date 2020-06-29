@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace ListCollectionSample
 {
+
+
     public partial class Form1 : Form
     {
         //車データを入れるバインディングリスト
@@ -49,6 +51,11 @@ namespace ListCollectionSample
                 //ピクチャーボックスのサイズに画像を調整
                 pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
             }
+        }
+
+        private void btClearImage_Click(object sender, EventArgs e)
+        {
+            //ボタンを押したら、画像をクリア
         }
     }
 }
