@@ -1,0 +1,24 @@
+{
+  "name": "SnipShare Dev",
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "../docker-compose.override.yml"
+  ],
+  "service": "web",
+  "runServices": ["db", "api", "web", "mailpit"],
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  },
+  "forwardPorts": [3000, 8000, 8025],
+  "postCreateCommand": "pip install -r /workspace/api/requirements.txt && (cd /workspace/web && npm ci || npm i)"
+}

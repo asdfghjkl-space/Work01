@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: snips
+      POSTGRES_PASSWORD: snips
+      POSTGRES_DB: snips
+    ports:
+      - "5432:5432"  # ローカルから接続したい時のみ
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build: ./api
+    environment:
+      DATABASE_URL: postgresql+psycopg://snips:snips@db:5432/snips
+      ALLOW_EXTS: .py,.js,.ts,.cs,.ps1,.sh,.sql,.bat,.md,.txt
+      MAX_FILE_SIZE: "200000"     # 200KB
+      MAX_PROJECT_SIZE: "1000000" # 1MB
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+  web:
+    build: ./web
+    environment:
+      NEXT_PUBLIC_API_BASE: http://localhost:8000
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "8025:8025"  # UI
+      - "1025:1025"  # SMTP（開発時のみ）
+
+volumes:
+  pgdata:
